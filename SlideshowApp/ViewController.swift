@@ -12,10 +12,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
+    let images: [String] = ["image_1.jpg", "image_2.jpg", "image_3.jpg"]
+    
+    var imageIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        imageView.image = UIImage(named: "image_1.jpg")
+        imageView.image = UIImage(named: images[imageIndex])
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +26,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func next(_ sender: Any) {
+        if imageIndex == 2 {
+            imageIndex = 0
+        } else {
+            imageIndex = imageIndex + 1
+        }
+        imageView.image = UIImage(named: images[imageIndex])
+    }
+    
+    @IBAction func back(_ sender: Any) {
+    }
+    
+    @IBAction func play(_ sender: Any) {
+    }
+    
 }
 
