@@ -36,6 +36,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: Any) {
+        if imageIndex == 0 {
+            imageIndex = 2
+        } else {
+            imageIndex = imageIndex - 1
+        }
+        imageView.image = UIImage(named: images[imageIndex])
     }
     
     @IBAction func play(_ sender: Any) {
