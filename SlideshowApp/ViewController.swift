@@ -48,9 +48,15 @@ class ViewController: UIViewController {
     @IBAction func play(_ sender: Any) {
         if (isAutoPlaying) {
             autoPlayTimer.invalidate()
+            nextButton.isEnabled = true
+            backButton.isEnabled = true
+            playButton.setTitle("再生", for: .normal)
             isAutoPlaying = false
         } else {
             autoPlayTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(showNextImage), userInfo: nil, repeats: true)
+            nextButton.isEnabled = false
+            backButton.isEnabled = false
+            playButton.setTitle("停止", for: .normal)
             isAutoPlaying = true
         }
     }

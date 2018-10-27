@@ -51,7 +51,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="EdX-TX-mko" id="2PT-o2-pMd"/>
                         <outlet property="imageView" destination="byi-Yh-B5L" id="wvy-71-YMk"/>
+                        <outlet property="nextButton" destination="CAr-CH-EkV" id="aqG-S6-ExQ"/>
+                        <outlet property="playButton" destination="v9x-vV-iSU" id="EOF-uF-6tk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
