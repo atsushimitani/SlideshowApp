@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byi-Yh-B5L">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="byi-Yh-B5L">
                                 <rect key="frame" x="67" y="85" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -55,26 +55,36 @@
                         <outlet property="imageView" destination="byi-Yh-B5L" id="wvy-71-YMk"/>
                         <outlet property="nextButton" destination="CAr-CH-EkV" id="aqG-S6-ExQ"/>
                         <outlet property="playButton" destination="v9x-vV-iSU" id="EOF-uF-6tk"/>
+                        <segue destination="0V6-kI-ArP" kind="show" identifier="toDetail" id="G7K-BU-pJb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="2KL-gE-8Ce">
             <objects>
-                <viewController id="0V6-kI-ArP" sceneMemberID="viewController">
+                <viewController id="0V6-kI-ArP" customClass="DetailViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ykB-jq-33p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eu1-j5-Rfa">
+                                <rect key="frame" x="0.0" y="68" width="375" height="451"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="L3Y-Xx-vlV"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="Eu1-j5-Rfa" id="Drj-Ib-AnE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5U-9Z-aYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="137"/>
+            <point key="canvasLocation" x="890.39999999999998" y="136.28185907046478"/>
         </scene>
     </scenes>
 </document>

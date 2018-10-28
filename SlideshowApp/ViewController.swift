@@ -30,7 +30,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = UIImage(named: images[imageIndex])
+        showImage()
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toDetail)))
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,7 +69,7 @@ class ViewController: UIViewController {
         } else {
             imageIndex = imageIndex + 1
         }
-        imageView.image = UIImage(named: images[imageIndex])
+        showImage()
     }
     
     /// 前の画像を表示
@@ -78,7 +79,22 @@ class ViewController: UIViewController {
         } else {
             imageIndex = imageIndex - 1
         }
+        showImage()
+    }
+    
+    /// 画像を表示
+    private func showImage() {
         imageView.image = UIImage(named: images[imageIndex])
+    }
+
+    /// 詳細画面へ
+    @objc private func toDetail() {
+        self.performSegue(withIdentifier: "toDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailViewController: DetailViewController = segue.destination as! DetailViewController
+        detailViewController.image = images[imageIndex]
     }
 }
 
