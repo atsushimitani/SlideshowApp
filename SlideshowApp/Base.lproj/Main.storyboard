@@ -74,6 +74,14 @@
                                 <rect key="frame" x="0.0" y="68" width="375" height="451"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rd-no-Xi1">
+                                <rect key="frame" x="172" y="555" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <segue destination="l7N-97-HOi" kind="unwind" unwindAction="unwind:" id="NjR-Pd-ONz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="L3Y-Xx-vlV"/>
@@ -83,6 +91,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5U-9Z-aYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="l7N-97-HOi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="890.39999999999998" y="136.28185907046478"/>
         </scene>

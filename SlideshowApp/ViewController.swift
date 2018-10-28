@@ -48,17 +48,9 @@ class ViewController: UIViewController {
     
     @IBAction func play(_ sender: Any) {
         if (isAutoPlaying) {
-            autoPlayTimer.invalidate()
-            nextButton.isEnabled = true
-            backButton.isEnabled = true
-            playButton.setTitle("再生", for: .normal)
-            isAutoPlaying = false
+            stopAutoPlay()
         } else {
-            autoPlayTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(showNextImage), userInfo: nil, repeats: true)
-            nextButton.isEnabled = false
-            backButton.isEnabled = false
-            playButton.setTitle("停止", for: .normal)
-            isAutoPlaying = true
+            startAutoPlay()
         }
     }
     
@@ -87,14 +79,37 @@ class ViewController: UIViewController {
         imageView.image = UIImage(named: images[imageIndex])
     }
 
+    /// 自動再生開始
+    private func startAutoPlay() {
+        autoPlayTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(showNextImage), userInfo: nil, repeats: true)
+        nextButton.isEnabled = false
+        backButton.isEnabled = false
+        playButton.setTitle("停止", for: .normal)
+        isAutoPlaying = true
+    }
+    
+    /// 自動再生停止
+    private func stopAutoPlay() {
+        autoPlayTimer.invalidate()
+        nextButton.isEnabled = true
+        backButton.isEnabled = true
+        playButton.setTitle("再生", for: .normal)
+        isAutoPlaying = false
+    }
     /// 詳細画面へ
     @objc private func toDetail() {
+        if (isAutoPlaying) {
+            stopAutoPlay()
+        }
         self.performSegue(withIdentifier: "toDetail", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailViewController: DetailViewController = segue.destination as! DetailViewController
         detailViewController.image = images[imageIndex]
+    }
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
 }
 
